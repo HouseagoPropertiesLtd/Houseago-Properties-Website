@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Documents | Houseago Properties Ltd Portal</title>
+<meta name="description" content="Your tenancy documents and management contact, from the Houseago Properties Ltd student portal.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Houseago Properties Ltd">
+<meta property="og:title" content="My Documents | Houseago Properties Ltd Portal">
+<meta property="og:description" content="Your tenancy documents and management contact, from the Houseago Properties Ltd student portal.">
+<meta property="og:image" content="assets/og-image.png">
+<meta property="og:url" content="portal-dashboard.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300..700;1,300..700&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-word"><span class="brand-word-1">Houseago</span><span class="brand-word-2">Properties</span></span>
+    </a>
+    <nav class="primary-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="student-homes.html">Student Homes</a>
+      <a href="property-management.html">Property Management</a>
+      <a href="contact.html">Contact</a>
+      <a href="portal.html" class="btn btn-primary" data-portal-logout>Log out</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="bg-panel" style="padding-top:44px;">
+  <div class="container">
+
+    <div class="portal-topbar">
+      <div class="portal-user">
+        <div class="portal-avatar" id="portal-avatar">A</div>
+        <div>
+          <div style="font-weight:700; color:var(--ink);">Welcome back, <span id="portal-welcome-name">Alex</span></div>
+          <div style="font-size:0.85rem;" id="portal-user-email">Horning Close &middot; Current tenancy</div>
+        </div>
+      </div>
+      <a href="portal.html" class="btn btn-primary" data-portal-logout>Log out</a>
+    </div>
+
+    <div class="section-head left">
+      <p class="eyebrow">My documents</p>
+      <h2>Everything for your tenancy, in one place</h2>
+      <p>Your documents load automatically below once you are logged in. If something is missing, contact the management team.</p>
+    </div>
+
+    <div class="doc-list">
+      <div class="doc-row">
+        <div class="doc-row-main"><div>Loading your documents&hellip;</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="bg-navy">
+  <div class="container">
+    <div class="section-head left">
+      <p class="eyebrow">Maintenance</p>
+      <h2>Report a maintenance issue</h2>
+      <p id="maintenance-intro">Loading your property details&hellip;</p>
+    </div>
+
+    <div id="maintenance-unavailable" hidden>
+      <p>Your account is not yet linked to a property, so we can't route a maintenance report yet. Please <a href="mailto:houseagopropertiesltd@gmail.com" style="color:var(--alabaster); font-weight:700;">email the management team</a> directly and we'll get this set up.</p>
+    </div>
+
+    <form id="maintenance-form" class="form-card" action="https://formsubmit.co/houseagopropertiesltd@gmail.com" method="POST" hidden>
+      <input type="hidden" name="_subject" value="New maintenance report - Houseago Properties portal">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="property" id="maintenance-property-field" value="">
+      <input type="hidden" name="tenant_email" id="maintenance-email-field" value="">
+      <p class="form-note">Reporting an issue for <strong id="maintenance-property-label">your property</strong>.</p>
+      <div>
+        <label for="maintenance-category">Type of issue</label>
+        <select id="maintenance-category" name="category" required>
+          <option value="">Select a category</option>
+          <option>Plumbing</option>
+          <option>Electrical</option>
+          <option>Heating &amp; hot water</option>
+          <option>Appliance</option>
+          <option>Locks &amp; security</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div>
+        <label for="maintenance-description">What's the problem?</label>
+        <textarea id="maintenance-description" name="description" required placeholder="Describe what's wrong, where in the property it is, and how urgent it feels."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit report</button>
+      <p class="form-status" role="status" id="maintenance-status"></p>
+    </form>
+
+    <div class="section-head left" style="margin-top:52px; margin-bottom:20px;">
+      <p class="eyebrow">Your reports</p>
+      <h3 style="margin:0;">What you've reported before</h3>
+    </div>
+    <div class="doc-list" id="maintenance-list">
+      <div class="doc-row"><div class="doc-row-main"><div>Loading your maintenance reports&hellip;</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-panel tight">
+  <div class="container">
+    <div class="split" style="align-items:start;">
+      <div class="split-copy">
+        <h3>Something else, or a general question?</h3>
+        <p>Message the management team directly and we will aim to get back to you as soon as possible.</p>
+        <a href="mailto:houseagopropertiesltd@gmail.com" class="btn btn-outline">Email the management team</a>
+      </div>
+      <div class="split-copy">
+        <h3>Your details</h3>
+        <ul class="tick-list" style="margin:0;" id="portal-details-list">
+          <li>Property: Horning Close</li>
+          <li>Tenancy: Current academic year</li>
+          <li>Utility package: Silver</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <span>&copy; Houseago Properties Ltd. All rights reserved.</span>
+      <div class="footer-badges">
+        <span>NRLA</span>
+        <span>DPS</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/supabase-config.js"></script>
+<script src="assets/portal-auth.js"></script>
+<script src="assets/main.js"></script>
+</body>
+</html>
