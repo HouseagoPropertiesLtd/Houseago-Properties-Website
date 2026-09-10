@@ -1,0 +1,1056 @@
+/* Houseago Properties Ltd - site stylesheet, v2 (brand guide aligned) */
+
+:root {
+  /* Only three colours are used anywhere on this site: white, deep navy,
+     and dusty rose. --line and --ink-soft are tints of navy (for hairlines
+     and secondary text), not a fourth colour. */
+  --alabaster: #ffffff;
+  --panel: #ffffff;
+  --line: rgba(21, 34, 56, 0.14);
+  --navy: #152238;
+  --ink: #152238;
+  --ink-soft: rgba(21, 34, 56, 0.68);
+  --rose: #c7a79a;
+  --rose-deep: #9c5344;
+  --sandstone: #f8f4ef;
+  --shadow: 0 20px 50px rgba(21, 34, 56, 0.08);
+  --radius: 4px;
+  /* Brandbook gradients, sampled directly from the locked brand guide swatches.
+     Dark Blue Gradient is the default for branded materials; Rose Gradient is
+     the secondary, used to alternate with it. No texture/pattern overlay. */
+  --navy-grad: linear-gradient(135deg, #0d1521 0%, #24375b 100%);
+  --rose-grad: linear-gradient(135deg, #7b3f34 0%, #c4a296 100%);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Rethink Sans", Helvetica, Arial, sans-serif;
+  color: var(--ink-soft);
+  background: var(--sandstone);
+  line-height: 1.65;
+}
+
+h1, h2, h3, h4 {
+  font-family: Fraunces, Garamond, Baskerville, "Times New Roman", serif;
+  color: var(--ink);
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+  font-weight: 400;
+}
+
+h1 { font-size: clamp(2.1rem, 4vw, 3.4rem); }
+h2 { font-size: clamp(1.6rem, 2.6vw, 2.3rem); }
+h3 { font-size: 1.3rem; }
+
+p { margin: 0 0 1em; }
+
+a { color: inherit; text-decoration: none; }
+
+img, svg { max-width: 100%; display: block; }
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rose-deep);
+  font-weight: 700;
+  margin-bottom: 0.6em;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: Fraunces, Garamond, Baskerville, "Times New Roman", serif;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.brand svg { flex-shrink: 0; }
+
+.brand-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--navy-grad);
+  color: var(--alabaster);
+  font-family: Fraunces, Garamond, Baskerville, "Times New Roman", serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.brand-word {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.08;
+}
+
+.brand-word-1 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.brand-word-2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--rose-deep);
+}
+
+.site-footer .brand-word-1,
+.bg-navy .brand-word-1,
+.hero-art .brand-word-1 { color: var(--alabaster); }
+
+.site-footer .brand-word-2,
+.bg-navy .brand-word-2 { color: var(--rose); }
+
+.portal-card .brand-word-1 { color: var(--ink); }
+.portal-card .brand-word-2 { color: var(--rose-deep); }
+
+nav.primary-nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+nav.primary-nav a {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink);
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+/* nav.primary-nav a's own padding above is more specific than .btn's, so
+   without this a pill button living in the nav (Portal Login / Log out)
+   silently loses its real padding and squeezes down to almost nothing —
+   restore it here. */
+nav.primary-nav a.btn {
+  padding: 12px 24px;
+}
+
+nav.primary-nav a.btn-portal,
+nav.primary-nav a.btn-primary {
+  color: #ffffff;
+}
+nav.primary-nav a.btn-outline {
+  color: var(--ink);
+}
+/* Same specificity problem as the color rule above: without this, the
+   nav's own selector still wins on hover too, so the button's background
+   flips dark (from .btn-outline:hover) while the text stays dark ink —
+   invisible dark-on-dark. */
+nav.primary-nav a.btn-outline:hover {
+  color: var(--alabaster);
+}
+
+nav.primary-nav a:not(.btn):hover,
+nav.primary-nav a:not(.btn)[aria-current="page"] {
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  border: 1.5px solid transparent;
+  white-space: nowrap;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+/* Browsers draw their own default focus/tap ring on a link, and on a
+   pill this shape (very large border-radius relative to height) some
+   browsers render that ring oversized and only partly closed, looking
+   like a stray arc around the button rather than following its outline.
+   Replace it with a deliberate, correctly-shaped one. */
+.btn:focus { outline: none; }
+.btn:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+.bg-navy .btn:focus-visible,
+.bg-rose .btn:focus-visible { outline-color: var(--alabaster); }
+
+.btn-primary {
+  background: var(--navy-grad);
+  color: var(--alabaster);
+}
+.btn-primary:hover { background: var(--rose-deep); transform: translateY(-1px); }
+
+.btn-outline {
+  border-color: var(--ink);
+  color: var(--ink);
+  background: transparent;
+}
+.btn-outline:hover { background: var(--ink); color: var(--alabaster); }
+
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: var(--alabaster);
+}
+.btn-outline-light:hover { background: var(--alabaster); color: var(--navy); }
+
+.btn-primary-light {
+  background: var(--alabaster);
+  color: var(--navy);
+}
+.btn-primary-light:hover { background: var(--rose); color: var(--navy); transform: translateY(-1px); }
+
+/* Auto-swap primary/outline buttons to their light-background variants when
+   they sit directly on a navy or rose gradient section, so they never blend
+   into the background they're on. */
+.bg-navy .btn-primary,
+.bg-rose .btn-primary { background: var(--alabaster); color: var(--navy); }
+.bg-navy .btn-primary:hover,
+.bg-rose .btn-primary:hover { background: var(--rose); color: var(--navy); }
+.bg-navy .btn-outline,
+.bg-rose .btn-outline { border-color: rgba(255, 255, 255, 0.55); color: var(--alabaster); }
+.bg-navy .btn-outline:hover,
+.bg-rose .btn-outline:hover { background: var(--alabaster); color: var(--navy); }
+.bg-navy .card .btn-outline,
+.bg-rose .card .btn-outline,
+.bg-navy .property-card .btn-outline,
+.bg-rose .property-card .btn-outline,
+.bg-navy form.form-card .btn-outline,
+.bg-rose form.form-card .btn-outline { border-color: var(--ink); color: var(--ink); }
+.bg-navy .card .btn-outline:hover,
+.bg-rose .card .btn-outline:hover,
+.bg-navy .property-card .btn-outline:hover,
+.bg-rose .property-card .btn-outline:hover,
+.bg-navy form.form-card .btn-outline:hover,
+.bg-rose form.form-card .btn-outline:hover { background: var(--ink); color: var(--alabaster); }
+/* .btn-primary gets the same treatment: the swap above is for a button
+   sitting directly on the navy/rose background, but a form-card (or any
+   other card) is its own white "island" inside that section, so a primary
+   button there needs to stay in its normal navy-on-white styling instead
+   of turning white-on-white against the card. */
+.bg-navy .card .btn-primary,
+.bg-rose .card .btn-primary,
+.bg-navy .property-card .btn-primary,
+.bg-rose .property-card .btn-primary,
+.bg-navy form.form-card .btn-primary,
+.bg-rose form.form-card .btn-primary { background: var(--navy-grad); color: var(--alabaster); }
+.bg-navy .card .btn-primary:hover,
+.bg-rose .card .btn-primary:hover,
+.bg-navy .property-card .btn-primary:hover,
+.bg-rose .property-card .btn-primary:hover,
+.bg-navy form.form-card .btn-primary:hover,
+.bg-rose form.form-card .btn-primary:hover { background: var(--rose-deep); color: var(--alabaster); }
+
+.btn-portal {
+  background: var(--navy-grad);
+  color: #ffffff;
+  border-color: var(--navy);
+}
+.btn-portal:hover { background: var(--rose-deep); border-color: var(--rose-deep); transform: translateY(-1px); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+.nav-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: var(--sandstone);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero.bg-navy .lead { color: rgba(255, 255, 255, 0.75); }
+.hero.bg-navy .eyebrow { color: var(--rose); }
+
+.hero-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 88px 24px 84px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero p.lead {
+  font-size: 1.12rem;
+  max-width: 46ch;
+}
+
+.hero-actions { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
+
+/* Responsive video embed, used in place of a placeholder photo wherever we
+   have real footage (e.g. the homepage hero). */
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--navy);
+  background: var(--navy-grad);
+}
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Placeholder photo panels standing in for real photography */
+.placeholder-photo {
+  position: relative;
+  border-radius: var(--radius);
+  background: var(--navy-grad);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid var(--navy);
+}
+
+.placeholder-photo.wide { aspect-ratio: 16 / 9; }
+.placeholder-photo.square { aspect-ratio: 1 / 1; }
+/* Used when a placeholder sits on a navy section, so it doesn't disappear
+   against a matching navy background. */
+.placeholder-photo.on-navy {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.placeholder-photo::before {
+  content: "H";
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 14px;
+  border: 1.6px solid rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Fraunces, Garamond, Baskerville, "Times New Roman", serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+.placeholder-photo {
+  flex-direction: column;
+}
+.placeholder-photo .ph-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: Fraunces, Garamond, Baskerville, "Times New Roman", serif;
+  font-size: 1rem;
+  text-align: center;
+  padding: 0 20px;
+}
+.placeholder-photo.dark .ph-label { color: rgba(255, 255, 255, 0.75); }
+
+/* Real photo panels: same shape/rhythm as the placeholders above, but
+   holding an actual <img> instead of the "coming soon" label. */
+.property-photo {
+  position: relative;
+  border-radius: var(--radius);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.property-photo.wide { aspect-ratio: 16 / 9; }
+.property-photo.square { aspect-ratio: 1 / 1; }
+.property-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Rolling photo carousel (used on property pages with a fuller gallery) */
+.photo-carousel {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(21, 34, 56, 0.16);
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.carousel-slide {
+  flex: 0 0 100%;
+  aspect-ratio: 16 / 9;
+}
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(13, 21, 33, 0.55);
+  color: var(--alabaster);
+  font-size: 1.6rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.carousel-btn:hover, .carousel-btn:focus-visible { background: rgba(13, 21, 33, 0.85); }
+.carousel-btn.prev { left: 16px; }
+.carousel-btn.next { right: 16px; }
+.carousel-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.carousel-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.carousel-dot.active { background: var(--alabaster); box-shadow: 0 0 0 2px rgba(13, 21, 33, 0.35); }
+@media (max-width: 640px) {
+  .carousel-slide { aspect-ratio: 4 / 3; }
+  .carousel-btn { width: 38px; height: 38px; font-size: 1.35rem; }
+}
+
+/* ---------- Sections ---------- */
+section { padding: 84px 0; border-bottom: 1px solid var(--line); }
+section:last-of-type { border-bottom: none; }
+section.tight { padding: 52px 0; }
+/* When two navy/rose sections sit back to back, the default hairline border
+   (tinted for a light background) all but disappears against them, so the
+   two blocks silently merge into one. Give that pairing a visible seam. */
+.bg-navy + .bg-navy,
+.bg-rose + .bg-rose,
+.bg-navy + .bg-rose,
+.bg-rose + .bg-navy { border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.section-head { max-width: 640px; margin: 0 auto 44px; text-align: center; }
+.section-head.left { margin: 0 0 40px; text-align: left; }
+
+.bg-navy {
+  background: var(--navy-grad);
+  color: rgba(255,255,255,0.8);
+}
+.bg-navy h1, .bg-navy h2, .bg-navy h3 { color: var(--alabaster); }
+.bg-navy p { color: rgba(255,255,255,0.72); }
+.bg-navy .eyebrow { color: var(--rose); }
+
+/* Rose gradient sections - the site's secondary accent background, used to
+   alternate with the navy gradient and white so no two sections in a row
+   share a background. Straight from the brandbook's Rose Gradient swatch. */
+.bg-rose {
+  background: var(--rose-grad);
+  color: rgba(255,255,255,0.95);
+}
+.bg-rose h1, .bg-rose h2, .bg-rose h3 { color: var(--alabaster); }
+.bg-rose p { color: rgba(255,255,255,0.85); }
+.bg-rose .eyebrow { color: var(--alabaster); }
+
+/* White "island" surfaces (cards, forms, property listings) keep their own
+   navy-on-white text even when the section around them is navy or rose.
+   Without this, the blanket h2/h3/p rules above bleed into their white
+   background and the text disappears. */
+.bg-navy .card h3,
+.bg-navy .property-card h3,
+.bg-navy .price-card h3,
+.bg-navy form.form-card h2,
+.bg-rose .card h3,
+.bg-rose .property-card h3,
+.bg-rose .price-card h3,
+.bg-rose form.form-card h2 {
+  color: var(--ink);
+}
+.bg-navy .card p,
+.bg-navy .property-card p,
+.bg-navy .price-card p,
+.bg-navy form.form-card p,
+.bg-rose .card p,
+.bg-rose .property-card p,
+.bg-rose .price-card p,
+.bg-rose form.form-card p {
+  color: var(--ink-soft);
+}
+.bg-navy .card ul.tick-list li,
+.bg-navy .property-card ul.tick-list li,
+.bg-navy .price-card ul.tick-list li,
+.bg-navy form.form-card ul.tick-list li,
+.bg-rose .card ul.tick-list li,
+.bg-rose .property-card ul.tick-list li,
+.bg-rose .price-card ul.tick-list li,
+.bg-rose form.form-card ul.tick-list li {
+  color: var(--ink-soft);
+}
+.bg-navy .card ul.tick-list li::before,
+.bg-navy .property-card ul.tick-list li::before,
+.bg-navy .price-card ul.tick-list li::before,
+.bg-navy form.form-card ul.tick-list li::before,
+.bg-rose .card ul.tick-list li::before,
+.bg-rose .property-card ul.tick-list li::before,
+.bg-rose .price-card ul.tick-list li::before,
+.bg-rose form.form-card ul.tick-list li::before {
+  background: var(--rose-deep);
+}
+.bg-panel { background: var(--sandstone); }
+
+.grid { display: grid; gap: 30px; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 30px;
+}
+
+.card .icon-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(21, 34, 56, 0.08);
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.card .icon-badge svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+ul.tick-list { list-style: none; margin: 0; padding: 0; }
+ul.tick-list li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+}
+ul.tick-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  background: var(--rose-deep);
+}
+.bg-navy ul.tick-list li::before { background: var(--rose); }
+.bg-navy ul.tick-list li { color: rgba(255, 255, 255, 0.85); }
+
+.badges { display: flex; gap: 14px; flex-wrap: wrap; }
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.badge-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--rose-deep); }
+
+/* Pricing */
+.price-card {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 36px 26px 30px;
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.price-card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(21, 34, 56, 0.12); }
+.price-card.featured { border-color: var(--navy); box-shadow: 0 10px 26px rgba(21, 34, 56, 0.1); }
+
+/* A metal-toned accent bar along the top of each card, matching its tier. */
+.price-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+}
+.price-card.tier-bronze::before { background: linear-gradient(90deg, #9c6b3f, #cf9f6d); }
+.price-card.tier-silver::before { background: linear-gradient(90deg, #97a1ac, #d9e0e6); }
+.price-card.tier-gold::before { background: linear-gradient(90deg, #af8225, #e9c876); }
+
+.price-card .tier-badge {
+  position: absolute;
+  top: 16px;
+  right: -34px;
+  transform: rotate(40deg);
+  background: var(--navy);
+  color: var(--alabaster);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 38px;
+}
+
+.price-card .tier-icon {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.price-card.tier-bronze .tier-icon { background: linear-gradient(135deg, #9c6b3f, #cf9f6d); }
+.price-card.tier-silver .tier-icon { background: linear-gradient(135deg, #97a1ac, #d9e0e6); }
+.price-card.tier-gold .tier-icon { background: linear-gradient(135deg, #af8225, #e9c876); }
+.price-card .tier-icon svg { width: 24px; height: 24px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.price-card .tier {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--rose-deep);
+}
+.bg-navy .price-card .tier { color: var(--rose); }
+.price-card .amount {
+  font-family: Fraunces, Garamond, Baskerville, "Times New Roman", serif;
+  font-size: 2.3rem;
+  color: var(--ink);
+  margin: 10px 0 4px;
+}
+.price-card .amount span { font-size: 0.95rem; color: var(--ink-soft); font-family: "Rethink Sans", Helvetica, Arial, sans-serif; }
+.price-card ul.tick-list {
+  text-align: left;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.price-card ul.tick-list li { font-size: 0.88rem; padding-left: 22px; margin-bottom: 9px; }
+.price-card ul.tick-list li:last-child { margin-bottom: 0; }
+
+table.compare {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+table.compare th, table.compare td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.94rem;
+  color: var(--ink);
+}
+table.compare th { background: var(--navy); color: var(--alabaster); font-family: Fraunces, Garamond, Baskerville, "Times New Roman", serif; font-weight: 400; }
+table.compare td.tick-cell { text-align: center; color: var(--rose-deep); font-weight: 700; font-size: 1.05rem; }
+table.compare tr:last-child td { border-bottom: none; }
+
+/* FAQ */
+details.faq {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin-bottom: 12px;
+}
+details.faq summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--ink);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+details.faq summary::-webkit-details-marker { display: none; }
+details.faq summary::after { content: "+"; color: var(--navy); font-size: 1.3rem; font-weight: 400; }
+details.faq[open] summary::after { content: "\2013"; }
+details.faq p { margin-top: 12px; }
+
+/* CTA banner */
+.cta-banner {
+  background: var(--navy-grad);
+  color: var(--alabaster);
+  border-radius: var(--radius);
+  padding: 52px;
+  text-align: center;
+}
+.cta-banner h2 { color: var(--alabaster); }
+.cta-banner p { color: rgba(255,255,255,0.75); max-width: 52ch; margin-left: auto; margin-right: auto; }
+/* The banner's own background is always dark (navy gradient), so its
+   primary button always swaps to a light fill - it never has to guess
+   what's behind it and can never blend into it. */
+.cta-banner .btn-primary { background: var(--alabaster); color: var(--navy); }
+.cta-banner .btn-primary:hover { background: var(--rose); color: var(--navy); }
+
+/* Light variant: a white/alabaster banner used on pages that already sit on
+   a navy or rose section, so two dark blocks don't stack back to back. */
+.cta-banner.light { background: var(--panel); border: 1px solid var(--line); color: var(--ink-soft); }
+.cta-banner.light h2 { color: var(--ink); }
+.cta-banner.light p { color: var(--ink-soft); }
+.cta-banner.light .btn-primary { background: var(--navy-grad); color: var(--alabaster); }
+.cta-banner.light .btn-primary:hover { background: var(--rose-deep); color: var(--alabaster); }
+.cta-banner.light .btn-outline { border-color: var(--ink); color: var(--ink); }
+.cta-banner.light .btn-outline:hover { background: var(--ink); color: var(--alabaster); }
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.contact-info dt {
+  font-weight: 700;
+  color: var(--rose-deep);
+  margin-top: 18px;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.contact-info dd { margin: 4px 0 0; }
+
+/* When the contact details sit on a navy section, box them as a white
+   card to match the form beside them, rather than patching every line's
+   text colour individually. */
+.bg-navy .contact-info {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  color: var(--ink-soft);
+}
+.bg-navy .contact-info h2 { color: var(--ink); }
+.bg-navy .contact-info dt { color: var(--rose-deep); }
+
+form.form-card {
+  display: grid;
+  gap: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+form.form-card label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 6px;
+}
+form.form-card input,
+form.form-card textarea,
+form.form-card select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: var(--alabaster);
+  color: var(--ink);
+}
+form.form-card textarea { min-height: 120px; resize: vertical; }
+.form-note { font-size: 0.8rem; color: var(--rose-deep); }
+
+/* Admin dashboard */
+.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 640px) { .form-grid-2 { grid-template-columns: 1fr; } }
+.doc-row-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.doc-row select.status-select {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.82rem;
+  background: var(--alabaster);
+  color: var(--ink);
+}
+.doc-row .btn-text {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--rose-deep);
+  cursor: pointer;
+  text-decoration: underline;
+}
+.admin-tenant-row { cursor: pointer; }
+.admin-tenant-row:hover { background: var(--sandstone); }
+
+/* Footer */
+footer.site-footer { background: var(--navy-grad); color: rgba(255,255,255,0.72); padding: 56px 0 28px; }
+footer.site-footer h4 { color: var(--rose); font-family: "Rethink Sans", Helvetica, Arial, sans-serif; font-size: 0.92rem; margin-bottom: 16px; }
+footer.site-footer a { color: rgba(255,255,255,0.68); }
+footer.site-footer a:hover { color: var(--rose); }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 32px; padding-bottom: 34px; border-bottom: 1px solid rgba(255,255,255,0.14); }
+.footer-grid ul { list-style: none; margin: 0; padding: 0; }
+.footer-grid li { margin-bottom: 10px; font-size: 0.9rem; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 22px; font-size: 0.8rem; flex-wrap: wrap; gap: 12px; }
+.footer-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+.footer-badges span { border: 1px solid rgba(255,255,255,0.22); border-radius: 999px; padding: 6px 14px; font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.75); }
+
+/* Interior page hero */
+.page-hero { border-bottom: 1px solid var(--line); padding: 60px 0 52px; }
+.page-hero:not(.bg-navy):not(.bg-rose):not(.bg-sandstone) { background: var(--sandstone); }
+.page-hero.bg-sandstone { background: var(--sandstone); }
+.bg-sandstone .eyebrow { color: var(--navy); }
+.page-hero.bg-navy, .page-hero.bg-rose { border-bottom-color: transparent; }
+.page-hero h1 { margin-bottom: 10px; }
+
+.tag {
+  display: inline-block;
+  background: rgba(21,34,56,0.08);
+  color: var(--navy);
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+.property-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.property-card .property-body { padding: 24px; }
+.property-card .tag {
+  display: inline-block;
+  background: rgba(21,34,56,0.08);
+  color: var(--navy);
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+[hidden] { display: none !important; }
+
+/* Portal */
+.portal-shell {
+  min-height: calc(100vh - 140px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 24px;
+  background:
+    radial-gradient(ellipse 900px 560px at 15% 10%, rgba(199, 167, 154, 0.22), transparent 60%),
+    radial-gradient(ellipse 900px 620px at 85% 90%, rgba(21, 34, 56, 0.10), transparent 60%),
+    var(--sandstone);
+}
+.portal-card {
+  width: 100%;
+  max-width: 560px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-top: 6px solid transparent;
+  border-image: linear-gradient(90deg, var(--navy), var(--rose)) 1;
+  border-radius: 10px;
+  padding: 56px 52px;
+  box-shadow: 0 30px 70px rgba(21, 34, 56, 0.14);
+}
+.portal-card .brand { justify-content: center; margin-bottom: 14px; }
+.portal-card .brand-word-1,
+.portal-card .brand-word-2 { font-size: 1.3rem; }
+.portal-card h1 { font-size: 2rem; text-align: center; margin-bottom: 8px; }
+.portal-card .sub { text-align: center; margin-bottom: 32px; font-size: 1rem; }
+.portal-card form { display: grid; gap: 20px; }
+.portal-card label { font-size: 0.84rem; font-weight: 700; color: var(--ink); display: block; margin-bottom: 7px; }
+.portal-card input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: #ffffff;
+  color: var(--ink);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.portal-card input:focus {
+  outline: none;
+  border-color: var(--navy);
+}
+.portal-card input#portal-email {
+  background: rgba(199, 167, 154, 0.14);
+  border-color: rgba(156, 83, 68, 0.35);
+}
+.portal-card input#portal-email:focus {
+  background: #ffffff;
+  border-color: var(--rose-deep);
+}
+.portal-card .btn { width: 100%; text-align: center; margin-top: 8px; padding: 14px 24px; font-size: 0.98rem; }
+.portal-card .btn-primary { background: var(--navy-grad); color: #ffffff; }
+.portal-card .btn-primary:hover { background: var(--rose-deep); }
+.portal-foot { text-align: center; margin-top: 26px; font-size: 0.9rem; }
+.portal-note {
+  margin-top: 28px;
+  padding: 16px 18px;
+  border: none;
+  border-left: 3px solid var(--rose);
+  background: rgba(199, 167, 154, 0.12);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+.portal-note code {
+  background: rgba(21, 34, 56, 0.08);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.78rem;
+}
+.portal-error {
+  padding: 12px 14px;
+  border-radius: 6px;
+  background: rgba(156, 83, 68, 0.12);
+  border: 1px solid rgba(156, 83, 68, 0.35);
+  color: var(--rose-deep);
+  font-size: 0.85rem;
+}
+
+.doc-list { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.doc-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 22px; background: var(--panel); }
+.doc-row .doc-name { font-weight: 700; color: var(--ink); }
+.doc-row .doc-meta { font-size: 0.8rem; margin-top: 2px; color: var(--rose-deep); }
+.doc-row .doc-icon {
+  width: 38px; height: 38px; border-radius: 6px; background: rgba(21,34,56,0.08);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  color: var(--navy);
+}
+.doc-row .doc-icon svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.doc-row-main { display: flex; align-items: center; gap: 16px; }
+
+/* Maintenance report status tags — reuses .tag's shape, distinct tones per status. */
+.tag.status-new { background: rgba(21, 34, 56, 0.08); color: var(--navy); }
+.tag.status-in-progress { background: rgba(156, 83, 68, 0.12); color: var(--rose-deep); }
+.tag.status-resolved { background: rgba(21, 34, 56, 0.06); color: var(--ink-soft); }
+.doc-row .tag { margin-bottom: 0; flex-shrink: 0; }
+
+.portal-topbar {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+  padding: 18px 0; border-bottom: 1px solid var(--line); margin-bottom: 40px; gap: 14px;
+}
+.portal-user { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.portal-avatar {
+  width: 38px; height: 38px; border-radius: 50%; background: var(--navy-grad); color: var(--alabaster);
+  display: flex; align-items: center; justify-content: center; font-family: Fraunces, Garamond, Baskerville, "Times New Roman", serif; font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; padding-top: 52px; }
+  .split { grid-template-columns: 1fr; gap: 32px; }
+  .split .split-media { order: -1; }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* Switches the header nav to the hamburger menu. This has its own,
+   wider breakpoint than the layout rules below: the nav's last item is
+   often a pill button (Portal Login / Log out), and a plain link row
+   fits in less width than one that ends in a button — past this point
+   the row got too tight and start wrapping the button's own text onto
+   two lines, squashing its pill shape. */
+@media (max-width: 900px) {
+  nav.primary-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--sandstone);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px 24px 24px;
+    gap: 16px;
+    border-bottom: 1px solid var(--line);
+    display: none;
+  }
+  nav.primary-nav.open { display: flex; }
+  .nav-toggle { display: flex; }
+}
+
+@media (max-width: 720px) {
+  .grid-3 { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .doc-row { flex-direction: column; align-items: flex-start; }
+}

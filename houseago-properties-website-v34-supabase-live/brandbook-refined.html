@@ -1,0 +1,369 @@
+<title>Houseago Properties Ltd Brand Guide, Refined</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --panel:#ffffff;
+    --stone:#e7e1d3;
+    --navy:#152238;
+    --ink:#152238;
+    --ink-soft:#6f6a5f;
+    --sage:#75886f;
+    --sage-deep:#526250;
+    --rose:#c7a79a;
+    --rose-deep:#9c5344;
+    --line:#dcd5c3;
+    --shadow:0 24px 60px rgba(21,34,56,0.10);
+    --radius:2px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1a1917;
+      --panel:#222019;
+      --stone:#332f27;
+      --ink:#efece4;
+      --ink-soft:#a49d8d;
+      --sage:#95a68d;
+      --sage-deep:#b7c6b0;
+      --rose:#d8bcb0;
+      --rose-deep:#e0a08d;
+      --line:#3a3529;
+      --shadow:0 24px 60px rgba(0,0,0,0.45);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1a1917;
+    --panel:#222019;
+    --stone:#332f27;
+    --ink:#efece4;
+    --ink-soft:#a49d8d;
+    --sage:#95a68d;
+    --sage-deep:#b7c6b0;
+    --rose:#d8bcb0;
+      --rose-deep:#e0a08d;
+    --line:#3a3529;
+    --shadow:0 24px 60px rgba(0,0,0,0.45);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:Helvetica, Arial, sans-serif;
+    line-height:1.7;
+    font-weight:300;
+  }
+  h1,h2,h3,h4{
+    font-family:Fraunces, Garamond, Baskerville, "Times New Roman", serif;
+    color:var(--ink);
+    margin:0;
+    font-weight:400;
+    text-wrap:balance;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0 0 1em; color:var(--ink-soft); max-width:60ch; font-weight:300;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 40px;}
+  .eyebrow{
+    display:flex; align-items:baseline; gap:14px;
+    text-transform:uppercase; letter-spacing:0.22em; font-size:0.68rem;
+    color:var(--ink-soft); font-weight:500; margin-bottom:22px;
+  }
+  .eyebrow .num{font-family:Fraunces, Garamond, Baskerville, "Times New Roman", serif; color:var(--ink-soft); letter-spacing:0; font-size:0.95rem;}
+  .eyebrow::after{content:""; flex:1; height:1px; background:var(--line);}
+  section{padding:104px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{max-width:600px; margin-bottom:56px;}
+  .section-head h2{font-size:clamp(1.9rem, 3vw, 2.6rem);}
+
+  /* ---- cover ---- */
+  .cover{
+    padding:140px 0 110px;
+    background:var(--bg);
+  }
+  .cover .kicker{
+    font-size:0.75rem; letter-spacing:0.28em; text-transform:uppercase;
+    color:var(--navy); font-weight:600; margin-bottom:40px;
+  }
+  .cover h1{
+    font-size:clamp(2.8rem, 7vw, 5.4rem);
+    font-weight:300;
+  }
+  .cover .sub{
+    margin-top:26px; font-size:1.15rem; max-width:44ch; color:var(--ink-soft);
+  }
+  .cover .divider{width:64px; height:1px; background:var(--navy); margin:44px 0;}
+  .cover .meta{display:flex; gap:48px; flex-wrap:wrap;}
+  .cover .meta div{font-size:0.72rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-soft);}
+  .cover .meta strong{display:block; font-family:Fraunces, Garamond, Baskerville, "Times New Roman", serif; font-size:1.05rem; color:var(--ink); text-transform:none; letter-spacing:0; margin-top:6px; font-weight:400;}
+
+  /* ---- positioning ---- */
+  .statement{
+    font-family:Fraunces, Garamond, Baskerville, "Times New Roman", serif; font-weight:400; font-size:1.7rem; color:var(--ink); line-height:1.55; max-width:50ch;
+    margin:8px 0 48px;
+  }
+  .audience-row{display:grid; grid-template-columns:1fr 1fr; gap:0;}
+  .audience{padding:0 36px 0 0; border-right:1px solid var(--line);}
+  .audience:last-child{border-right:none; padding:0 0 0 36px;}
+  .audience .tag{font-size:0.68rem; text-transform:uppercase; letter-spacing:0.14em; color:var(--navy); font-weight:600; margin-bottom:10px; display:block;}
+  .audience h4{font-size:1.3rem; margin-bottom:10px; font-weight:400;}
+
+  .values-row{display:grid; grid-template-columns:repeat(3,1fr); gap:40px; margin-top:56px;}
+  .value{border-top:1px solid var(--navy); padding-top:18px;}
+  .value .word{font-family:Fraunces, Garamond, Baskerville, "Times New Roman", serif; font-size:1.25rem; color:var(--ink); margin-bottom:8px;}
+
+  /* ---- logo ---- */
+  .lockup-row{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line);}
+  .lockup-display{
+    padding:80px 40px; display:flex; align-items:center; justify-content:center; background:var(--panel);
+  }
+  .lockup-display.dark{background:var(--ink); color:var(--bg);}
+  .logo-word{font-family:Fraunces, Garamond, Baskerville, "Times New Roman", serif; font-weight:400; letter-spacing:0.01em;}
+  .logo-word em{font-weight:400;}
+
+  .spec-row{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:1px;}
+  .spec{padding:36px 32px; background:var(--panel);}
+  .spec .k{font-size:0.68rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-soft); margin-bottom:14px; display:block;}
+
+  .rule-list{list-style:none; margin:32px 0 0; padding:0; display:grid; gap:16px;}
+  .rule-list li{display:flex; gap:16px; font-size:0.94rem; color:var(--ink-soft); align-items:baseline;}
+  .rule-list .mark{font-family:Fraunces, Garamond, Baskerville, "Times New Roman", serif; color:var(--ink-soft); flex-shrink:0; width:20px;}
+
+  /* ---- color ---- */
+  .swatch-strip{display:grid; grid-template-columns:repeat(5,1fr); border:1px solid var(--line);}
+  .swatch{border-right:1px solid var(--line);}
+  .swatch:last-child{border-right:none;}
+  .swatch .chip{height:130px;}
+  .swatch .info{padding:18px 16px; background:var(--panel);}
+  .swatch .name{font-family:Fraunces, Garamond, Baskerville, "Times New Roman", serif; font-size:1rem; color:var(--ink); margin-bottom:4px;}
+  .swatch .hex{font-size:0.75rem; color:var(--ink-soft); font-variant-numeric:tabular-nums; letter-spacing:0.02em;}
+  .swatch .use{font-size:0.76rem; color:var(--ink-soft); margin-top:10px; line-height:1.5;}
+
+  /* ---- type ---- */
+  .type-sample{border-top:1px solid var(--line);}
+  .type-row{display:grid; grid-template-columns:130px 1fr; gap:24px; padding:28px 0; border-bottom:1px solid var(--line); align-items:baseline;}
+  .type-row .label{font-size:0.68rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-soft);}
+  .type-row .sample{font-family:Fraunces, Garamond, Baskerville, "Times New Roman", serif; color:var(--ink); font-weight:400;}
+  .type-row.body .sample{font-family:Helvetica, Arial, sans-serif; font-weight:300; color:var(--ink-soft); font-size:1.02rem; max-width:56ch;}
+  .type-row.label-sample .sample{font-family:Helvetica, Arial, sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.16em; font-size:0.78rem; color:var(--navy);}
+
+  /* ---- voice ---- */
+  .voice-pair{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:28px;}
+  .voice-card{padding:28px 30px; background:var(--panel);}
+  .voice-card .tag{font-size:0.68rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; margin-bottom:14px; display:block;}
+  .voice-card.no .tag{color:var(--rose-deep);}
+  .voice-card.yes .tag{color:var(--navy);}
+  .voice-card p{font-family:Fraunces, Garamond, Baskerville, "Times New Roman", serif; font-size:1.15rem; color:var(--ink); margin:0; max-width:none;}
+
+  /* ---- applications ---- */
+  .app-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line);}
+  .biz-card{
+    aspect-ratio:1.7/1; background:var(--ink); color:var(--bg);
+    padding:36px; display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .biz-card .name{font-family:Fraunces, Garamond, Baskerville, "Times New Roman", serif; font-size:1.3rem;}
+  .biz-card .role{font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--rose); margin-top:6px;}
+  .biz-card .contact{font-size:0.75rem; color:rgba(255,255,255,0.55); line-height:1.8;}
+
+  .listing-card{background:var(--panel); display:flex; flex-direction:column;}
+  .listing-photo{height:180px; background:linear-gradient(150deg, var(--stone), var(--sage) 130%); position:relative;}
+  .listing-photo .tag{position:absolute; top:16px; left:16px; background:var(--panel); color:var(--ink); font-size:0.66rem; text-transform:uppercase; letter-spacing:0.1em; padding:6px 12px;}
+  .listing-body{padding:28px; flex:1; display:flex; flex-direction:column;}
+  .listing-body h4{font-size:1.15rem; margin-bottom:8px; font-weight:400;}
+  .listing-body .price{font-family:Fraunces, Garamond, Baskerville, "Times New Roman", serif; color:var(--navy); font-size:1rem; margin-top:auto; padding-top:14px;}
+
+  footer.doc-footer{padding:72px 0; text-align:center;}
+  footer.doc-footer p{margin:0 auto; font-size:0.85rem;}
+
+  @media (max-width: 820px){
+    .lockup-row,.spec-row,.swatch-strip,.voice-pair,.app-grid,.audience-row,.values-row{grid-template-columns:1fr;}
+    .swatch{border-right:none; border-bottom:1px solid var(--line);}
+    .audience{border-right:none; border-bottom:1px solid var(--line); padding:0 0 28px; margin-bottom:28px;}
+    .audience:last-child{padding:0;}
+    .type-row{grid-template-columns:1fr;}
+    section{padding:72px 0;}
+  }
+</style>
+
+
+<section class="cover">
+  <div class="wrap">
+    <div class="kicker">Houseago Properties Ltd &mdash; Brand Guide, Refined</div>
+    <h1>Quietly excellent.</h1>
+    <p class="sub">A lighter, more considered identity for Houseago Properties Ltd. It should feel immediately trustworthy on a landing page, a listing photo, or a tenancy pack.</p>
+    <div class="divider"></div>
+    <div class="meta">
+      <div>Prepared for<strong>Oscar</strong></div>
+      <div>Direction<strong>High class, simple, elegant</strong></div>
+      <div>Edition<strong>Version 3.0</strong></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">i</span> Positioning</p>
+    <div class="section-head">
+      <h2>A calmer kind of confidence</h2>
+    </div>
+    <p class="statement">Houseago Properties Ltd runs like a well kept boutique. Nothing shouts. Everything is considered.</p>
+    <div class="audience-row">
+      <div class="audience">
+        <span class="tag">Students</span>
+        <h4>Want to feel looked after</h4>
+        <p>Not sold to. A calm, well presented home, and a management team that actually treats them like adults.</p>
+      </div>
+      <div class="audience">
+        <span class="tag">Landlords</span>
+        <h4>Want quiet competence</h4>
+        <p>Fewer surprises. Clear numbers. A manager who runs things well enough that you would trust them with your own property.</p>
+      </div>
+    </div>
+    <div class="values-row">
+      <div class="value"><div class="word">Understated</div><p style="margin:0;">Confidence that does not need to raise its voice.</p></div>
+      <div class="value"><div class="word">Precise</div><p style="margin:0;">Clear pricing, clear language, nothing hidden in small print.</p></div>
+      <div class="value"><div class="word">Warm</div><p style="margin:0;">Elegant without ever feeling cold or corporate.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">ii</span> Mark</p>
+    <div class="section-head">
+      <h2>A single line, drawn once</h2>
+      <p>An arched doorway, drawn as a single continuous line. It stands for entry. It reads just as well as a favicon or embossed on a tenancy pack.</p>
+    </div>
+
+    <div class="lockup-row">
+      <div class="lockup-display">
+        <div style="display:flex; align-items:center; gap:20px;">
+          <svg width="38" height="46" viewBox="0 0 38 46" fill="none">
+            <path d="M3 45V19C3 9.6 10.6 2 20 2C29.4 2 37 9.6 37 19V45" stroke="#152238" stroke-width="1.4"/>
+            <line x1="3" y1="45" x2="37" y2="45" stroke="#152238" stroke-width="1.4"/>
+          </svg>
+          <span class="logo-word" style="font-size:1.8rem; color:var(--ink);">Houseago Properties Ltd</span>
+        </div>
+      </div>
+      <div class="lockup-display dark">
+        <div style="display:flex; align-items:center; gap:20px;">
+          <svg width="38" height="46" viewBox="0 0 38 46" fill="none">
+            <path d="M3 45V19C3 9.6 10.6 2 20 2C29.4 2 37 9.6 37 19V45" stroke="#ffffff" stroke-width="1.4"/>
+            <line x1="3" y1="45" x2="37" y2="45" stroke="#ffffff" stroke-width="1.4"/>
+          </svg>
+          <span class="logo-word" style="font-size:1.8rem; color:var(--bg);">Houseago Properties Ltd</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec-row">
+      <div class="spec"><span class="k">Monogram</span>
+        <svg width="30" height="36" viewBox="0 0 38 46" fill="none"><path d="M3 45V19C3 9.6 10.6 2 20 2C29.4 2 37 9.6 37 19V45" stroke="#152238" stroke-width="1.6"/><line x1="3" y1="45" x2="37" y2="45" stroke="#152238" stroke-width="1.6"/></svg>
+      </div>
+      <div class="spec"><span class="k">Minimum size</span>
+        <span style="font-family:Garamond, Baskerville, 'Times New Roman', serif; font-size:1.5rem;">24px</span>
+      </div>
+      <div class="spec"><span class="k">Line weight</span>
+        <span style="font-family:Garamond, Baskerville, 'Times New Roman', serif; font-size:1.5rem;">1.4pt, never filled</span>
+      </div>
+    </div>
+
+    <ul class="rule-list">
+      <li><span class="mark">01</span> Only ever draw the arch as an open, unfilled line. A solid version reads heavier than the brand should feel.</li>
+      <li><span class="mark">02</span> Keep the full name, Houseago Properties Ltd, in one weight and one colour, ink or navy only. Never split the wordmark into two colours.</li>
+      <li><span class="mark">03</span> Never pair the mark with a drop shadow, gradient fill, or outline stroke beyond the single hairline shown here.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">iii</span> Colour</p>
+    <div class="section-head">
+      <h2>One primary, not two</h2>
+      <p>Deep navy is the brand's single primary colour. Every button, active link, and label reads the same navy, so there is never a question of what the "main" colour is. Dusty rose is the one warm accent, used sparingly for a highlight or a single warm detail. Sage survives only as a quiet, minor tone, a small dot or a soft gradient, never as a competing action colour.</p>
+    </div>
+    <div class="swatch-strip">
+      <div class="swatch"><div class="chip" style="background:#152238;"></div><div class="info"><div class="name">Deep Navy</div><div class="hex">#152238</div><div class="use">Primary. Buttons, links, labels, the darkest ground. The one colour that always signals "this is the action."</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#c7a79a;"></div><div class="info"><div class="name">Dusty Rose</div><div class="hex">#C7A79A</div><div class="use">Secondary accent. A highlight, a hover state, one warm detail.</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#ffffff;"></div><div class="info"><div class="name">White</div><div class="hex">#FFFFFF</div><div class="use">Primary background, nearly everywhere.</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#e7e1d3;"></div><div class="info"><div class="name">Stone</div><div class="hex">#E7E1D3</div><div class="use">Panels, hairlines, quiet division.</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#75886f;"></div><div class="info"><div class="name">Sage</div><div class="hex">#75886F</div><div class="use">Minor tone only. A small dot, a bullet, a soft gradient. Never a button or a link.</div></div></div>
+    </div>
+    <p style="margin-top:28px; font-size:0.86rem;">If a page feels busy, remove colour before adding more of it. White and stone should carry most of the page. Navy is what tells someone where to look and where to click, so it should never have to compete with another colour for that job.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">iv</span> Type</p>
+    <div class="section-head">
+      <h2>Fraunces and Helvetica</h2>
+      <p>Headings now run in Fraunces, a serif with real character: soft, slightly old-fashioned curves that read as considered rather than corporate, the same quality that made lowickhedry.com a useful reference point. Where a page can load a web font, headings display in Fraunces. Where it can't, they fall back to Garamond, Baskerville, or Times New Roman, so nothing ever breaks or shows a blank space while loading. Body copy stays in Helvetica, or Arial where Helvetica is not installed, both of which sit on virtually every computer already.</p>
+    </div>
+    <div class="type-sample">
+      <div class="type-row"><div class="label">Display</div><div class="sample" style="font-size:2.6rem;">A quieter way to let</div></div>
+      <div class="type-row"><div class="label">Heading</div><div class="sample" style="font-size:1.7rem;">Managed with real care</div></div>
+      <div class="type-row"><div class="label">Subhead</div><div class="sample" style="font-size:1.2rem;">Simple, elegant, done properly</div></div>
+      <div class="type-row body"><div class="label">Body</div><div class="sample">Every home is finished to the same standard, and every landlord gets the same clear, unhurried communication.</div></div>
+      <div class="type-row label-sample"><div class="label">Label</div><div class="sample">Property Management</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">v</span> Voice</p>
+    <div class="section-head">
+      <h2>Understated, never salesy</h2>
+      <p>Say less. Let the standard of the home and the clarity of the numbers do the persuading.</p>
+    </div>
+    <div class="voice-pair">
+      <div class="voice-card yes"><span class="tag">Say it like this</span><p>"Rent, utilities, and wifi, one weekly number."</p></div>
+      <div class="voice-card no"><span class="tag">Not like this</span><p>"Unbeatable value on an unmissable student living experience!"</p></div>
+    </div>
+    <div class="voice-pair">
+      <div class="voice-card yes"><span class="tag">Say it like this</span><p>"We inspect every property before we take it on."</p></div>
+      <div class="voice-card no"><span class="tag">Not like this</span><p>"Rest assured, your property is in the safest possible hands."</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">vi</span> In use</p>
+    <div class="section-head">
+      <h2>Applications</h2>
+    </div>
+    <div class="app-grid">
+      <div class="biz-card">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <svg width="20" height="24" viewBox="0 0 38 46" fill="none"><path d="M3 45V19C3 9.6 10.6 2 20 2C29.4 2 37 9.6 37 19V45" stroke="#ffffff" stroke-width="1.6"/><line x1="3" y1="45" x2="37" y2="45" stroke="#ffffff" stroke-width="1.6"/></svg>
+          <span class="logo-word" style="font-size:1rem; color:var(--bg);">Houseago Properties Ltd</span>
+        </div>
+        <div>
+          <div class="name">Oscar Houseago</div>
+          <div class="role">Founder</div>
+          <div class="contact" style="margin-top:12px;">houseagopropertiesltd@gmail.com<br>Norwich, Norfolk</div>
+        </div>
+      </div>
+      <div class="listing-card">
+        <div class="listing-photo"><span class="tag">Available</span></div>
+        <div class="listing-body">
+          <h4>Horning Close</h4>
+          <p style="margin:0;">A double bed, proper study space, and a management team that answers.</p>
+          <div class="price">From &pound;125 per week</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="doc-footer">
+  <div class="wrap">
+    <p>Houseago Properties Ltd. Brand Guide, Version 3.0. Questions on applying this guide go to houseagopropertiesltd@gmail.com.</p>
+  </div>
+</footer>
