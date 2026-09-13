@@ -121,6 +121,13 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     hide('admin-not-configured');
+      var navToggle = document.querySelector('.nav-toggle');
+    var primaryNav = document.querySelector('.primary-nav');
+    if (navToggle && primaryNav) {
+      navToggle.addEventListener('click', function () {
+        primaryNav.classList.toggle('open');
+      });
+    }
 
     document.querySelectorAll('[data-admin-logout]').forEach(function (el) {
       el.addEventListener('click', function (e) {
